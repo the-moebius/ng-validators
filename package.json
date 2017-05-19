@@ -1,7 +1,7 @@
 {
-  "name": "@moebius/input-validators",
-  "version": "0.0.0",
-  "description": "Moebius Input Validators",
+  "name": "@moebius/ng-validators",
+  "version": "0.0.1",
+  "description": "Collection of input validators for Angular 2+",
   "main": "src/input-validators.module.ts",
   "license": "MIT",
   "dependencies": {

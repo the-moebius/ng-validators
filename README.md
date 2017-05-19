@@ -1,7 +1,7 @@
 
 # Collection of input validators for Angular 2+
 
-[![npm version](https://badge.fury.io/js/%40moebius-mlm%2Fng-validators.svg)](https://badge.fury.io/js/%40moebius-mlm%2Fng-validators)
+[![npm version](https://badge.fury.io/js/%40moebius%2Fng-validators.svg)](https://badge.fury.io/js/%40moebius%2Fng-validators)
 
 This repository contains several input validators which could be used
 independently or with Angular 2+.
