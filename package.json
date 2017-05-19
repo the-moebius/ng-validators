@@ -1,0 +1,11 @@
+{
+  "name": "@moebius/input-validators",
+  "version": "0.0.0",
+  "description": "Moebius Input Validators",
+  "main": "src/input-validators.module.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@angular/core": "^4.0.2",
+    "@angular/forms": "^4.0.0"
+  }
+}
