@@ -8,7 +8,28 @@ independently or with Angular 2+.
 
 ## Provided validators
 
-* Password
+### Password
+
+`passwordValidator(options: PasswordValidatorOptions)`
+
+Checks if value is a correct password.
+
+* `options.minLength: number`
+* `options.maxLength: number`
+* `options.requireLowerCaseLetters: boolean`
+* `options.requireUpperCaseLetters: boolean`
+* `options.requireNumbers: boolean`
+* `options.requireSpecialCharacters: boolean`
+
+### Match other
+
+`matchOtherValidator(otherControlName: string)`
+
+Checks if value equals to the value in another input.
+Also, watched for events from another input to re-validate when necessary.
+
+* `otherControlName: string` — specify the name of another form control,
+  both controls must be in the same control group
 
 
 ## Support
