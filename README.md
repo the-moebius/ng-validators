@@ -31,6 +31,12 @@ Also, watched for events from another input to re-validate when necessary.
 * `otherControlName: string` — specify the name of another form control,
   both controls must be in the same control group
 
+### Skype name
+
+`skypeNameValidator()`
+
+Checks if value contains valid skype login name.
+
 
 ## Support
 
