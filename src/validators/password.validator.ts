@@ -32,7 +32,11 @@ export class PasswordValidator {
   constructor (private options: PasswordValidatorOptions) {
   }
 
-  public validate (value: any): any {
+  public validate (value: string): any {
+
+    if (!value) {
+      return null;
+    }
 
     const errors: any = {};
 
