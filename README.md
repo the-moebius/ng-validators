@@ -37,6 +37,15 @@ Also, watched for events from another input to re-validate when necessary.
 
 Checks if value contains valid skype login name.
 
+### Birth Date
+
+`birthDateValidator(options: BirthDateValidatorOptions)`
+
+Checks if [js-joda][js-joda]'s `LocalDate` value is allowed date of birth.
+
+* `options.minYearsOld: number` — minimal years old, e.g. `18` (legal age)
+* `options.maxYearsOld: number` — maximum years old, e.g. `60` (pension age)
+
 
 ## Support
 
@@ -71,3 +80,4 @@ THE SOFTWARE.
 
 
   [repo-gh]: https://github.com/moebius-mlm/ng-validators
+  [js-joda]: https://js-joda.github.io/js-joda/index.html

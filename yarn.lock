@@ -10,6 +10,10 @@
   version "4.1.3"
   resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.1.3.tgz#380ab4c3af84c5d1d748c2a7d04151c7dc8e4982"
 
+js-joda@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/js-joda/-/js-joda-1.5.2.tgz#c19a61e6ab10968d7fe99aeb9a5a31281212a3bd"
+
 rxjs@^5.1.0:
   version "5.4.0"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.0.tgz#a7db14ab157f9d7aac6a56e655e7a3860d39bf26"
