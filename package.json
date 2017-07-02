@@ -1,6 +1,6 @@
 {
   "name": "@moebius/ng-validators",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "Collection of input validators for Angular 2+",
   "main": "build/index.js",
   "typings": "build/index.d.ts",

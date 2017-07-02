@@ -1,10 +1,38 @@
 
-# Collection of input validators for Angular 2+
+# @moebius/ng-validators
 
 [![npm version](https://badge.fury.io/js/%40moebius%2Fng-validators.svg)](https://badge.fury.io/js/%40moebius%2Fng-validators)
 
 This repository contains several input validators which could be used
 independently or with Angular 2+.
+
+
+## Installation
+
+### yarn
+
+`yarn add @moebius/ng-validators`
+
+### npm
+
+`npm i @moebius/ng-validators`
+
+
+## Usage
+
+```typescript
+import {birthDateValidator} from '@moebius/ng-validators';
+
+this.form = this.formBuilder.group({
+  birthDate: [null, [
+    birthDateValidator({
+      minYearsOld: 18,
+      maxYearsOld: 60
+    })
+  ]]
+});
+```
+
 
 ## Provided validators
 
@@ -21,6 +49,7 @@ Checks if value is a correct password.
 * `options.requireNumbers: boolean`
 * `options.requireSpecialCharacters: boolean`
 
+
 ### Match other
 
 `matchOtherValidator(otherControlName: string)`
@@ -31,11 +60,13 @@ Also, watched for events from another input to re-validate when necessary.
 * `otherControlName: string` — specify the name of another form control,
   both controls must be in the same control group
 
+
 ### Skype name
 
 `skypeNameValidator()`
 
 Checks if value contains valid skype login name.
+
 
 ### Birth Date
 
