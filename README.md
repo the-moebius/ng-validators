@@ -44,6 +44,7 @@ Checks if value is a correct password.
 
 * `options.minLength: number`
 * `options.maxLength: number`
+* `options.requireLetters: boolean`
 * `options.requireLowerCaseLetters: boolean`
 * `options.requireUpperCaseLetters: boolean`
 * `options.requireNumbers: boolean`
