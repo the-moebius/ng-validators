@@ -3,33 +3,27 @@
 
 [![npm version](https://badge.fury.io/js/%40moebius%2Fng-validators.svg)](https://badge.fury.io/js/%40moebius%2Fng-validators)
 
-This repository contains several input validators which could be used
-independently or with Angular 2+.
+This repository contains a collection of useful Angular input validators,
+some of which could also be used independently.
 
 
 ## Installation
 
-### yarn
-
-`yarn add @moebius/ng-validators`
-
-### npm
-
-`npm i @moebius/ng-validators`
+`npm i -S @moebius/ng-validators`
 
 
 ## Usage
 
 ```typescript
-import {birthDateValidator} from '@moebius/ng-validators';
+import { birthDateValidator } from '@moebius/ng-validators';
 
 this.form = this.formBuilder.group({
   birthDate: [null, [
     birthDateValidator({
       minYearsOld: 18,
-      maxYearsOld: 60
-    })
-  ]]
+      maxYearsOld: 60,
+    }),
+  ]],
 });
 ```
 
@@ -51,7 +45,7 @@ Checks if value is a correct password.
 * `options.requireSpecialCharacters: boolean`
 
 
-### Match other
+### Match Other
 
 `matchOtherValidator(otherControlName: string)`
 
@@ -62,7 +56,7 @@ Also, watched for events from another input to re-validate when necessary.
   both controls must be in the same control group
 
 
-### Skype name
+### Skype Name
 
 `skypeNameValidator()`
 
@@ -73,7 +67,10 @@ Checks if value contains valid skype login name.
 
 `birthDateValidator(options: BirthDateValidatorOptions)`
 
-Checks if [js-joda][js-joda]'s `LocalDate` value is allowed date of birth.
+Validates the specified date of birth relative to the current date.
+
+The date could be specified as native Date object, moment.js object
+or js-joda LocalDate.
 
 * `options.minYearsOld: number` — minimal years old, e.g. `18` (legal age)
 * `options.maxYearsOld: number` — maximum years old, e.g. `60` (pension age)
@@ -90,7 +87,7 @@ Thank you!
 
 The MIT License (MIT)
 
-Copyright (c) 2017 Slava Fomin II, MOEBIUS FOUNDATION
+Copyright (c) 2017—2019, MOEBIUS FOUNDATION, Slava Fomin II
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

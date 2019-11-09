@@ -1,12 +1,37 @@
 
-export {InputValidatorsModule} from './input-validators.module';
+export { InputValidatorsModule } from './input-validators.module';
 
-export {birthDateValidator, BirthDateValidator, BirthDateValidatorOptions} from './validators/birth-date.validator';
+export {
+  birthDateValidator,
+  BirthDateValidator,
+  BirthDateValidatorErrors,
+  BirthDateValidatorOptions,
 
-export {isTrueValidator} from './validators/is-true';
+} from './validators/birth-date.validator';
 
-export {matchOtherValidator} from './validators/match-other.validator';
+export {
+  isTrueValidator,
+  IsTrueValidatorErrors,
 
-export {passwordValidator, PasswordValidator, PasswordValidatorOptions} from './validators/password.validator';
+} from './validators/is-true';
 
-export {skypeNameValidator, SkypeNameValidator} from './validators/skype-name.validator';
+export {
+  matchOtherValidator,
+  MatchOtherValidatorErrors,
+
+} from './validators/match-other.validator';
+
+export {
+  passwordValidator,
+  PasswordValidator,
+  PasswordValidatorErrors,
+  PasswordValidatorOptions,
+
+} from './validators/password.validator';
+
+export {
+  skypeNameValidator,
+  SkypeNameValidator,
+  SkypeNameValidatorErrors,
+
+} from './validators/skype-name.validator';

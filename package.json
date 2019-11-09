@@ -1,43 +1,48 @@
 {
   "name": "@moebius/ng-validators",
-  "version": "1.1.1",
-  "description": "Collection of input validators for Angular 2+",
-  "main": "build/index.js",
-  "typings": "build/index.d.ts",
-  "author": "Slava Fomin II <s.fomin@betsol.ru>",
+  "version": "2.0.0-beta.0",
+  "description": "Collection of input validators for Angular",
+  "author": "Slava Fomin II <slava@fomin.io> (https://slava.fomin.io)",
   "license": "MIT",
   "repository": "https://github.com/moebius-mlm/ng-validators",
   "scripts": {
-    "build": "rm -rf ./build; ./node_modules/.bin/tsc"
+    "build": "rm -rf ./dist/ && ng-packagr",
+    "publish": "npm run build && cd ./dist/ && npm publish"
   },
   "keywords": [
     "angular",
-    "validator",
     "birth-date",
     "birthday",
-    "js-joda",
+    "date",
+    "form",
+    "forms",
     "is-true",
+    "js-joda",
     "match-other",
+    "moment",
     "password",
     "skype",
     "skype-name",
-    "typescript"
+    "typescript",
+    "validation",
+    "validator"
   ],
-  "dependencies": {
-    "@angular/common": "^4.2.5",
-    "@angular/compiler": "^4.2.5",
-    "@angular/core": "^4.2.5",
-    "@angular/forms": "^4.0.0",
-    "@angular/platform-browser": "^4.2.5",
-    "@angular/platform-browser-dynamic": "^4.2.5",
-    "js-joda": "^1.5.2",
-    "rxjs": "^5.4.1",
-    "zone.js": "^0.8.12"
+  "peerDependencies": {
+    "@angular/core": "^8.0.0",
+    "@angular/forms": "^8.0.0",
+    "@types/moment": "^2.0.0",
+    "js-joda": "^1.11.0",
+    "moment": "^2.0.0"
   },
   "devDependencies": {
-    "@types/node": "^8.0.7",
-    "source-map-support": "^0.4.15",
-    "tslint": "^5.4.3",
-    "typescript": "~2.3.4"
+    "@angular/compiler": "^8.2.13",
+    "@angular/compiler-cli": "^8.2.13",
+    "@angular/core": "^8.2.13",
+    "@angular/forms": "^8.2.13",
+    "js-joda": "^1.11.0",
+    "moment": "^2.24.0",
+    "ng-packagr": "^5.7.1",
+    "tslint": "^5.20.1",
+    "typescript": "<3.6.0"
   }
 }

@@ -1,6 +1,7 @@
 
-import {FormControl} from '@angular/forms';
-import {LocalDate} from 'js-joda';
+import { AbstractControl } from '@angular/forms';
+import { LocalDate, nativeJs } from 'js-joda';
+import { isMoment, Moment } from 'moment';
 
 
 export interface BirthDateValidatorOptions {
@@ -8,12 +9,17 @@ export interface BirthDateValidatorOptions {
   maxYearsOld?: number;
 }
 
+export interface BirthDateValidatorErrors {
+  birthDateMinYearsOld?: { minYearsOld: number },
+  birthDateMaxYearsOld?: { maxYearsOld: number },
+}
 
-export function birthDateValidator (options: BirthDateValidatorOptions) {
+
+export function birthDateValidator(options: BirthDateValidatorOptions) {
 
   const validator = new BirthDateValidator(options);
 
-  return function validateBirthDate (control: FormControl) {
+  return function validateBirthDate(control: AbstractControl) {
     return validator.validate(control.value);
   }
 
@@ -25,35 +31,53 @@ export class BirthDateValidator {
   private currentDate = LocalDate.now();
 
 
-  constructor (private options: BirthDateValidatorOptions) {
+  constructor(private options: BirthDateValidatorOptions) {
   }
 
 
-  validate (value: LocalDate): any {
+  public validate(
+    birthDate?: Date | LocalDate | Moment
 
-    if (!value) {
+  ): BirthDateValidatorErrors | null {
+
+    if (!birthDate) {
       return null;
     }
 
+    // Converting from native date or moment to LocalDate
+    if (birthDate instanceof Date || isMoment(birthDate)) {
+      birthDate = LocalDate.from(nativeJs(birthDate));
+    }
+
     const yearsOld = Math.floor(
-      value.until(this.currentDate).toTotalMonths() / 12
+      birthDate.until(this.currentDate).toTotalMonths() / 12
     );
 
-    const errors: any = {};
+    const {
+      minYearsOld = 0,
+      maxYearsOld = 0,
 
-    if (this.options.minYearsOld > 0 && yearsOld < this.options.minYearsOld) {
+    } = this.options;
+
+    const errors: BirthDateValidatorErrors = {};
+
+    if (minYearsOld > 0 && yearsOld < minYearsOld) {
       errors.birthDateMinYearsOld = {
-        minYearsOld: this.options.minYearsOld
+        minYearsOld,
       };
     }
 
-    if (this.options.maxYearsOld > 0 && yearsOld > this.options.maxYearsOld) {
+    if (maxYearsOld > 0 && yearsOld > maxYearsOld) {
       errors.birthDateMaxYearsOld = {
-        maxYearsOld: this.options.maxYearsOld
+        maxYearsOld,
       };
     }
 
-    return Object.keys(errors).length > 0 ? errors : null;
+    return (
+      Object.keys(errors).length > 0 ?
+        errors :
+        null
+    );
 
   }
 

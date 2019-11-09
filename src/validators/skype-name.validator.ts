@@ -1,12 +1,17 @@
 
-import {FormControl} from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 
-export function skypeNameValidator () {
+export interface SkypeNameValidatorErrors {
+  skypeName?: true;
+}
+
+
+export function skypeNameValidator() {
 
   const validator = new SkypeNameValidator();
 
-  return function validateSkypeName (control: FormControl) {
+  return function validateSkypeName(control: AbstractControl) {
     return validator.validate(control.value);
   }
 
@@ -17,16 +22,10 @@ export class SkypeNameValidator {
   private skypeNameMatcher = /^[a-z][a-z\d.,\-_]{5,31}$/i;
 
 
-  public validate (value: string): any {
+  public validate(value: string): SkypeNameValidatorErrors | null {
 
-    if (!value) {
-      return null;
-    }
-
-    if (!this.skypeNameMatcher.test(value)) {
-      return {
-        skypeName: true
-      };
+    if (value && !this.skypeNameMatcher.test(value)) {
+      return { skypeName: true };
     }
 
     return null;

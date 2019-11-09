@@ -1,5 +1,5 @@
 
-import {FormControl} from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 
 export interface PasswordValidatorOptions {
@@ -12,12 +12,26 @@ export interface PasswordValidatorOptions {
   requireSpecialCharacters?: boolean;
 }
 
+export interface PasswordValidatorErrors {
+  passwordMinLengthRequired?: {
+    minLength: number;
+  };
+  passwordMaxLengthExceeded?: {
+    maxLength: number;
+  };
+  passwordLetterRequired?: true;
+  passwordLowerCaseLetterRequired?: true;
+  passwordUpperCaseLetterRequired?: true;
+  passwordNumberRequired?: true;
+  passwordSpecialCharacterRequired?: true;
+}
 
-export function passwordValidator (options: PasswordValidatorOptions) {
+
+export function passwordValidator(options: PasswordValidatorOptions) {
 
   const validator = new PasswordValidator(options);
 
-  return function validatePassword (control: FormControl) {
+  return function validatePassword(control: AbstractControl) {
     return validator.validate(control.value);
   }
 
@@ -33,58 +47,73 @@ export class PasswordValidator {
   private specialCharactersMatcher = /[-+=_.,:;~`!@#$%^&*(){}<>\[\]"'\/\\]/;
 
 
-  constructor (private options: PasswordValidatorOptions) {
+  constructor(private options: PasswordValidatorOptions) {
   }
 
 
-  validate (value: string): any {
+  public validate(value: string): PasswordValidatorErrors | null {
 
     if (!value) {
       return null;
     }
 
-    const errors: any = {};
+    const {
+      minLength,
+      maxLength,
+      requireLetters,
+      requireLowerCaseLetters,
+      requireUpperCaseLetters,
+      requireNumbers,
+      requireSpecialCharacters,
 
-    // Minimum length.
-    if (this.options.minLength > 0 && value.length < this.options.minLength) {
+    } = this.options;
+
+    const errors: PasswordValidatorErrors = {};
+
+    // Minimum length
+    if (undefined !== minLength && minLength > 0 && value.length < minLength) {
       errors.passwordMinLengthRequired = {
-        minLength: this.options.minLength
+        minLength: minLength,
       };
     }
 
-    // Maximum length.
-    if (this.options.maxLength >= 0 && value.length > this.options.maxLength) {
+    // Maximum length
+    if (undefined !== maxLength && maxLength >= 0 && value.length > maxLength) {
       errors.passwordMaxLengthExceeded = {
-        maxLength: this.options.maxLength
+        maxLength: maxLength,
       };
     }
 
-    // Letters.
-    if (this.options.requireLetters && !this.letterMatcher.test(value)) {
+    // Letters
+    if (requireLetters && !this.letterMatcher.test(value)) {
       errors.passwordLetterRequired = true;
     }
 
-    // Lower-case letters.
-    if (this.options.requireLowerCaseLetters && !this.lowerCaseLetterMatcher.test(value)) {
+    // Lower-case letters
+    if (requireLowerCaseLetters && !this.lowerCaseLetterMatcher.test(value)) {
       errors.passwordLowerCaseLetterRequired = true;
     }
 
-    // Upper-case letters.
-    if (this.options.requireUpperCaseLetters  && !this.upperCaseLetterMatcher.test(value)) {
+    // Upper-case letters
+    if (requireUpperCaseLetters  && !this.upperCaseLetterMatcher.test(value)) {
       errors.passwordUpperCaseLetterRequired = true;
     }
 
-    // Numbers.
-    if (this.options.requireNumbers && !this.numberMatcher.test(value)) {
+    // Numbers
+    if (requireNumbers && !this.numberMatcher.test(value)) {
       errors.passwordNumberRequired = true;
     }
 
-    // Special characters.
-    if (this.options.requireSpecialCharacters && !this.specialCharactersMatcher.test(value)) {
+    // Special characters
+    if (requireSpecialCharacters && !this.specialCharactersMatcher.test(value)) {
       errors.passwordSpecialCharacterRequired = true;
     }
 
-    return Object.keys(errors).length > 0 ? errors : null;
+    return (
+      Object.keys(errors).length > 0 ?
+        errors :
+        null
+    );
 
   }
 

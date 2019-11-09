@@ -1,13 +1,26 @@
 
-import {FormControl} from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
 
-export function isTrueValidator () {
-  return function validateIsTrue (control: FormControl) {
-    if (true === control.value) {
-      return null;
-    } else {
-      return { isTrue: true };
-    }
+export interface IsTrueValidatorErrors {
+  isTrue: true;
+}
+
+
+export function isTrueValidator() {
+  return validateIsTrue;
+}
+
+
+function validateIsTrue(
+  control: AbstractControl
+
+): null | IsTrueValidatorErrors {
+
+  if (true === control.value) {
+    return null;
+  } else {
+    return { isTrue: true };
   }
+
 }
