@@ -46,7 +46,6 @@
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": false,
     "no-unused-expression": true,
-    "no-use-before-declare": true,
     "no-var-keyword": true,
     "object-literal-sort-keys": false,
     "one-line": [
@@ -79,7 +78,6 @@
         "variable-declaration": "nospace"
       }
     ],
-    "typeof-compare": true,
     "variable-name": false,
     "whitespace": [
       true,
@@ -90,20 +88,8 @@
       "check-separator",
       "check-type"
     ],
-    "directive-selector": [true, ["element", "attribute"], ["uim", "mbs"], "camelCase"],
-    "component-selector": [true, "element", ["app", "mbs"], "kebab-case"],
-    "use-input-property-decorator": true,
-    "use-output-property-decorator": true,
-    "use-host-property-decorator": true,
     "no-input-rename": false,
-    "no-output-rename": true,
-    "use-life-cycle-interface": true,
-    "use-pipe-transform-interface": true,
-    "component-class-suffix": true,
-    "directive-class-suffix": true,
     "no-access-missing-member": false,
-    "templates-use-public": true,
-    "invoke-injectable": true,
     "trailing-comma": [true, {"multiline": {
       "arrays": "always",
       "exports": "always",
