@@ -1,13 +1,15 @@
 {
   "name": "@moebius/ng-validators",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Collection of input validators for Angular",
   "author": "Slava Fomin II <slava@fomin.io> (https://slava.fomin.io)",
   "license": "MIT",
   "repository": "https://github.com/moebius-mlm/ng-validators",
   "scripts": {
     "build": "rm -rf ./dist/ && tslint -p . && ng-packagr",
-    "publish": "./bin/publish.sh"
+    "build:watch": "ng-packagr --watch",
+    "publish": "./bin/publish.sh",
+    "start": "npm run build:watch"
   },
   "keywords": [
     "angular",

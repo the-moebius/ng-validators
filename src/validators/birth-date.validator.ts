@@ -1,7 +1,11 @@
 
 import { AbstractControl } from '@angular/forms';
 import { LocalDate, nativeJs } from 'js-joda';
-import { isMoment, Moment } from 'moment';
+
+// @todo: fix this after issue is resolved
+// https://github.com/moment/moment/issues/5288
+// @ts-ignore
+import { isMoment, Moment } from 'moment/src/lib/moment/constructor';
 
 
 export interface BirthDateValidatorOptions {

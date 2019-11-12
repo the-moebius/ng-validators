@@ -1,4 +1,9 @@
 
+# 2.0.2
+
+- introduced more concise import technique for `moment.js` that doesn't
+  cause host application to load entire `moment.js` bundle with all the locales
+
 # 2.0.0
 
 - added support for Angular 8
