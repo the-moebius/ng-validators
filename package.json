@@ -7,7 +7,7 @@
   "repository": "https://github.com/moebius-mlm/ng-validators",
   "scripts": {
     "build": "rm -rf ./dist/ && tslint -p . && ng-packagr",
-    "publish": "npm run build && cd ./dist/ && npm publish"
+    "publish": "./bin/publish.sh"
   },
   "keywords": [
     "angular",
