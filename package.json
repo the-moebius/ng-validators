@@ -31,7 +31,7 @@
     "@angular/core": "^8.0.0",
     "@angular/forms": "^8.0.0",
     "moment": "^2.0.0",
-    "js-joda": "^1.11.0",
+    "js-joda": "^1.11.0"
   },
   "devDependencies": {
     "@angular/compiler": "^8.2.13",
