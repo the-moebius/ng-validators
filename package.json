@@ -42,7 +42,7 @@
     "@angular/forms": "^8.2.13",
     "js-joda": "^1.11.0",
     "moment": "^2.24.0",
-    "ng-packagr": "^5.7.1",
+    "ng-packagr": "^10.1.1",
     "tslint": "^5.20.1",
     "typescript": "<3.6.0"
   }
